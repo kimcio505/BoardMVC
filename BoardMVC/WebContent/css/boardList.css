@@ -1,0 +1,44 @@
+@charset "UTF-8";
+	
+	.main{
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction : column;
+	}
+	
+	table{
+		margin-top : 40px;
+		border-collapse : collapse;
+	}
+	table ,th, td{
+		border : 1px solid black;
+	}
+	td,th{
+		width : 85px;
+	}
+	th{
+		padding : 8px;
+	}
+	td{
+		padding : 15px;
+	}
+	.title{
+		padding-left : 10px;
+	}
+	.center{
+		text-align : center;
+	}
+	.date{
+		width : 160px;
+	}
+	h4{
+		padding-top : 150px;
+	}
+	.btn{
+		width : 800px;
+		float : right;
+	}
+	#write{
+		right : 0;
+	}
