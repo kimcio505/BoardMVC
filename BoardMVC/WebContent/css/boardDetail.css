@@ -1,6 +1,6 @@
 @charset "UTF-8";
-.main{
-		display : flex;
+	.main{
+		display:flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction : column;

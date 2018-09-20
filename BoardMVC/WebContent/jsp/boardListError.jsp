@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>에러가 발생하였습니다</h1>
-	<a href="BoardListServlet">게시판으로 이동</a>
+	<a href="boardList.bo?btype=1">게시판으로 이동</a>
 </body>
 </html>

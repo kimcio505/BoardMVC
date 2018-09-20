@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.itedu.boardMVC.action.Action;
+import kr.itedu.boardMVC.action.BoardDeleteAction;
+import kr.itedu.boardMVC.action.BoardDetailAction;
+import kr.itedu.boardMVC.action.BoardInsertAction;
 import kr.itedu.boardMVC.action.BoardListAction;
+import kr.itedu.boardMVC.action.RegModAction;
 import kr.itedu.boardMVC.common.BoardDAO;
 
 @WebServlet("*.bo")
@@ -32,23 +36,21 @@ public class BoardFrontController extends HttpServlet {
 		
 		if(comd.equals("/boardList.bo")) {
 			action = new BoardListAction();
-			BoardDAO dao = BoardDAO.getInstance();
-			try {
-				int btype = Integer.parseInt(request.getParameter("btype"));
-				ArrayList<BoardVO> result = dao.getBoardList(btype); 
-				if(btype==1 || btype==2 || btype==3) {
-					request.setAttribute("boardList", result);
-					request.setAttribute("btype", btype);
-					forward = action.execute(request, response);
-				} 
-			} catch (Exception e) {
-				// TODO++: 예외 처리
-				e.printStackTrace();
-			}
-			
+			forward = action.execute(request, response);
 		} else if(comd.equals("/boardDetail.bo")) {
-			
+			action = new BoardDetailAction();
+			forward = action.execute(request, response);
+		} else if(comd.equals("/boardRegMod.bo")) {
+			action = new RegModAction();
+			forward = action.execute(request, response);
+		} else if(comd.equals("/boardInsert.bo")) {
+			action = new BoardInsertAction();
+			forward = action.execute(request, response);
+		} else if(comd.equals("/boardDelete.bo")) {
+			action = new BoardDeleteAction();
+			forward = action.execute(request, response);
 		}
+		
 		if(forward != null) {
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());

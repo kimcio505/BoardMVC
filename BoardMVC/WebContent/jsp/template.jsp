@@ -18,7 +18,7 @@
 		번호 : ${vo.bid}
 		제목 : ${vo.btitle}
 	</c:forEach> --%>
-	귀찮아 힝
+	<header><h1>${title}</h1></header>
 	<div class="main">
 		<jsp:include page="menu.jsp" />
 		<jsp:include page="${content}.jsp" />

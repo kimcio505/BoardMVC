@@ -5,7 +5,7 @@
 <%@page errorPage="boardListError.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-	ArrayList<BoardVO> result = (ArrayList<BoardVO>) request.getAttribute("boardList");
+	ArrayList<BoardVO> result = (ArrayList<BoardVO>) request.getAttribute("data");
 	/* 	int bid = Integer.parseInt(request.getParameter("bid")); */
 	//result.clear();
 %>
@@ -24,7 +24,7 @@
 
 		<c:forEach var="vo" items="${data}">
 			<tr>
-			<td class="center"><a href="#">${vo.bid }</a></td>
+			<td class="center"><a href="boardDetail.bo?bid=${vo.bid }&btype=${btype}">${vo.bid }</a></td>
 			<td class="title">${vo.btitle }</td>
 			<td class="center">${vo.bregdate }</td>
 		</tr>
@@ -39,9 +39,9 @@
 		}
 	%>
 	<div class="btn">
-		<form action="boardRegMod" method="get">
+		<form action="boardRegMod.bo" method="get">
 			<input type="hidden" name="bid" value="0">
-			<input type="hidden" name="num" value="<%=request.getParameter("num") %>">
+			<input type="hidden" name="btype" value="<%=request.getParameter("btype") %>">
 			 <input	type="submit" value="글쓰기">
 		</form>
 	</div>
